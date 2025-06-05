@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+      - "6789:6789"
+    depends_on:
+      - redis
+    environment:
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PORT: 8000
+      WS_PORT: 6789
+
+  redis:
+    image: redis:alpine
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      HOST: "0.0.0.0"
+      REACT_APP_API_URL: "http://backend:8000"
+      REACT_APP_WS_URL: "ws://backend:6789"
