@@ -42,7 +42,7 @@ project-root/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-org/ping-pong.git
+git clone https://github.com/NoamNC/ping-pong-beeper.git
 cd ping-pong
 ```
 
