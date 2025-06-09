@@ -10,7 +10,7 @@ async function bootstrap() {
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type'],
   });
-  await app.listen(8000);
+  await app.listen(8000, '0.0.0.0');
   console.log('Server is running on http://localhost:8000');
 }
 void bootstrap();

@@ -22,8 +22,7 @@ export class PingProcessorService implements OnModuleInit {
 
   private async listenForPings() {
     await this.redisService.waitUntilReady();
-
-    let lastId = '$';
+    let lastId = '0-0';
 
     while (true) {
       try {
@@ -37,10 +36,6 @@ export class PingProcessorService implements OnModuleInit {
           console.log('🧪 Redis stream is empty');
           continue;
         }
-
-        console.log('✅ Stream has messages!');
-        console.log('🧪 Redis returned:', JSON.stringify(entries, null, 2));
-
         for (const { messages } of entries) {
           for (const { id, message } of messages) {
             console.log('📩 Raw message:', message);

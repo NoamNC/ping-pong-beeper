@@ -16,17 +16,8 @@ export class PingService implements OnModuleInit {
     await this.redisService.waitUntilReady();
   }
 
-  async handlePing(message: string) {
-    await this.redisService.addToStream('stream:pingpong', { message });
-  }
-
   async addPingMessage(message: string) {
     console.log('📤 Received ping message in service:', message);
     await this.redisService.addToStream('pings', { message });
-
-    if (message === 'ping') {
-      console.log('✅ Calling gateway.sendMessage("pong")');
-      this.gateway.sendMessage('pong');
-    }
   }
 }
