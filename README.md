@@ -74,19 +74,19 @@ Watch the frontend respond with a blinking light and pong details!
 
 ### Frontend
 
-| Variable              | Purpose                     |
-|-----------------------|-----------------------------|
-| `REACT_APP_API_URL`   | Backend REST API base URL   |
-| `REACT_APP_WS_URL`    | WebSocket server URL        |
+| Variable              | Purpose                     | Value                   |
+|-----------------------|-----------------------------|-------------------------|
+| `REACT_APP_API_URL`   | Backend REST API base URL   | http://localhost:8000   |
+| `REACT_APP_WS_URL`    | WebSocket server URL        | ws://localhost:6789     |
 
 ### Backend
 
-| Variable      | Purpose                 |
-|---------------|-------------------------|
-| `REDIS_HOST`  | Redis container hostname|
-| `REDIS_PORT`  | Redis port              |
-| `PORT`        | Backend HTTP port       |
-| `WS_PORT`     | WebSocket server port   |
+| Variable      | Purpose                 | Value          |
+|---------------|-------------------------|----------------|
+| `REDIS_HOST`  | Redis container hostname| localhost      |
+| `REDIS_PORT`  | Redis port              | 6379           |
+| `PORT`        | Backend HTTP port       | 8000           |
+| `WS_PORT`     | WebSocket server port   | 6789           |
 
 ---
 

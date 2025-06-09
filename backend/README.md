@@ -54,6 +54,7 @@ Create a `.env` file in the root directory:
 ```env
 REDIS_HOST=localhost
 REDIS_PORT=6379
+PORT=8000
 WS_PORT=6789
 ```
 

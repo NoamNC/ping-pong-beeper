@@ -51,8 +51,8 @@ npm install
 Create a `.env` file in the root directory:
 
 ```
-REACT_APP_API_URL=http://your-api-url.com
-REACT_APP_WS_URL=ws://your-websocket-url.com
+REACT_APP_API_URL=http://localhost:8000
+REACT_APP_WS_URL=ws://localhost:6789
 ```
 
 ### 4. Run the App
