@@ -1,23 +1,23 @@
-import { forwardRef, Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { RedisService } from '../redis/redis.service';
-import { PingGateway } from './ping.gateway';
+import { Subject, Observable } from 'rxjs';
 
 @Injectable()
-export class PingService implements OnModuleInit {
-  constructor(
-    private readonly redisService: RedisService,
-    @Inject(forwardRef(() => PingGateway))
-    private readonly gateway: PingGateway,
-  ) {
-    console.log('🚨 Injected gateway:', gateway);
-  }
+export class PingService {
+  private pingStream$ = new Subject<{ data: string }>();
 
-  async onModuleInit() {
-    await this.redisService.waitUntilReady();
-  }
+  constructor(private readonly redisService: RedisService) {}
 
   async addPingMessage(message: string) {
     console.log('📤 Received ping message in service:', message);
     await this.redisService.addToStream('pings', { message });
+  }
+
+  emitPong() {
+    this.pingStream$.next({ data: 'pong' });
+  }
+
+  getPingStream(): Observable<{ data: string }> {
+    return this.pingStream$.asObservable();
   }
 }

@@ -1,12 +1,12 @@
 # 📟 Real-Time Pager App
 
-This is a modern, real-time pager application built with **React**, **TypeScript**, **Tailwind CSS**, and **WebSocket** support. The application is containerized using **Docker** and supports dynamic ping-pong message display, highlighting, and latency tracking.
+This is a modern, real-time pager application built with **React**, **TypeScript**, **Tailwind CSS**, and **Server-Sent Events (SSE)** for real-time communication. The application is containerized using **Docker** and supports dynamic ping-pong message display, highlighting, and latency tracking.
 
 ---
 
 ## 🧩 Features
 
-- 📡 **Real-Time WebSocket Communication**
+- 📡 **Real-Time Streaming with Server-Sent Events (SSE)**
 - 🧪 **Ping Button with Latency Measurement**
 - 🟢 **Blinking Light for New Messages**
 - 🕒 **Live Clock Display**
@@ -22,7 +22,7 @@ This is a modern, real-time pager application built with **React**, **TypeScript
 src/
 ├── components/           # UI components like Pager, Buttons, Clock
 ├── context/              # React Context for state sharing (Messages, Display)
-├── hooks/                # Custom hooks (e.g., WebSocket management)
+├── hooks/                # Custom hooks (e.g., SSE stream handling)
 ├── lib/                  # Utility functions and type definitions
 ├── services/             # API service layer (e.g., sendPing)
 ├── App.tsx               # Main app entry point
@@ -51,8 +51,7 @@ npm install
 Create a `.env` file in the root directory:
 
 ```
-REACT_APP_API_URL=http://localhost:8000
-REACT_APP_WS_URL=ws://localhost:6789
+REACT_APP_API_BASE_URL=http://localhost:8000
 ```
 
 ### 4. Run the App
@@ -86,22 +85,13 @@ docker run -p 3000:3000 pager-app
 
 ---
 
-## 🧪 Testing
-
-This project uses `@testing-library/react` and `jest` for unit tests. Run:
-
-```bash
-npm test
-```
-
----
 
 ## 🛠️ Technologies Used
 
 - **React 19**
 - **TypeScript**
 - **Tailwind CSS**
-- **WebSocket**
+- **Server-Sent Events (SSE)**
 - **clsx-for-tailwind**
 - **Docker**
 - **Lucide React Icons**
@@ -110,10 +100,9 @@ npm test
 
 ## 📬 Environment Variables
 
-| Variable             | Purpose                          |
-|----------------------|----------------------------------|
-| `REACT_APP_API_URL`  | API endpoint for sending ping    |
-| `REACT_APP_WS_URL`   | WebSocket endpoint               |
+| Variable                  | Purpose                          |
+|---------------------------|----------------------------------|
+| `REACT_APP_API_BASE_URL`  | Backend base URL for ping & SSE  |
 
 ---
 

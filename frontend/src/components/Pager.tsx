@@ -1,16 +1,16 @@
 import { cn } from "clsx-for-tailwind";
 import { useMessages } from "../context/MessagesProvider";
-import { useWebSocket } from "../hooks/useWebSocket";
 import PingButton from "./ButtonPing";
 import ButtonArrow from "./ButtonArrow";
 import { useDisplay } from "../context/DisplayProvider";
 import PagerDisplay from "./PagerDisplay";
 import BlinkingLight from "./BlinkingLight";
+import { useSSE } from "../hooks/useSSE";
 
 const Pager = () => {
   const { displayNextMessage, displayedPrevMessage } = useMessages();
   const { setDisplayContent, withHighlight } = useDisplay();
-  useWebSocket();
+  useSSE();
 
   const handlePrev = withHighlight(displayedPrevMessage);
   const handleNext = withHighlight(displayNextMessage);

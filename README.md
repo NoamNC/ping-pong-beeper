@@ -6,17 +6,18 @@ A real-time ping-pong messaging app built with **React (frontend)**, **NestJS (b
 
 ## 🧩 Features
 
+
 ### Frontend
 - ⚛️ React 19 + TypeScript
 - 🧪 Send "ping" requests
-- 📡 WebSocket listener for real-time "pong"
+- 📡 Live "pong" stream via SSE
 - 🕒 Real-time clock, latency tracking, and blinking UI
 
 ### Backend
 - 🚀 NestJS + TypeScript
-- 📬 REST endpoint for receiving ping
-- 📡 WebSocket server broadcasting pong
-- 🔁 Redis stream processor to simulate latency handling
+- 📬 REST endpoint for sending pings
+- 🔁 Redis stream processor
+- 📡 Real-time "pong" stream using Server-Sent Events
 
 ---
 
@@ -77,7 +78,6 @@ Watch the frontend respond with a blinking light and pong details!
 | Variable              | Purpose                     | Value                   |
 |-----------------------|-----------------------------|-------------------------|
 | `REACT_APP_API_URL`   | Backend REST API base URL   | http://localhost:8000   |
-| `REACT_APP_WS_URL`    | WebSocket server URL        | ws://localhost:6789     |
 
 ### Backend
 
@@ -86,7 +86,6 @@ Watch the frontend respond with a blinking light and pong details!
 | `REDIS_HOST`  | Redis container hostname| localhost      |
 | `REDIS_PORT`  | Redis port              | 6379           |
 | `PORT`        | Backend HTTP port       | 8000           |
-| `WS_PORT`     | WebSocket server port   | 6789           |
 
 ---
 

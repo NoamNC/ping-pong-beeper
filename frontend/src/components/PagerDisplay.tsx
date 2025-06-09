@@ -39,7 +39,7 @@ const PagerDisplay = () => {
         >
           {displayContent ? (
             <span className="text-sm">
-              Message: {messages.current[displayedMessageIndex]?.content} #{displayedMessageIndex}
+              Message: {messages.current[displayedMessageIndex]?.content} #{displayedMessageIndex+1}
             </span>
           ) : (
             <>
